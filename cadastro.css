@@ -310,35 +310,91 @@ a {
 
 
 /* ============================================================
-   BOTÕES
+   BOTÕES (Atualizados com o degradê e formato da tela inicial)
    ============================================================ */
 
-.btn-gold,
-.btn-secondary {
-    min-height: 44px;
-
-    padding: 10px 17px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    border-radius: 7px;
-
-    font-family: var(--font-main);
-    font-size: 0.78rem;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
-}
+   .btn-gold,
+   .btn-secondary {
+       min-height: 44px;
+       padding: 10px 24px;
+   
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+   
+       gap: 8px;
+   
+       /* Deixa o botão arredondado em formato de pílula */
+       border-radius: 30px;
+       border: none;
+   
+       font-family: var(--font-main);
+       font-size: 12px;
+       font-weight: 700;
+   
+       cursor: pointer;
+   
+       transition:
+           background-color 0.2s ease,
+           transform 0.2s ease,
+           box-shadow 0.2s ease;
+   }
+   
+   /* Aplicando o mesmo degradê dourado da tela inicial em ambos */
+   .btn-gold,
+   .btn-secondary {
+       background: linear-gradient(
+           110deg,
+           var(--gold-light) 0%,
+           var(--gold) 35%,
+           var(--gold-dark) 70%,
+           #3c3527 100%
+       );
+       color: #111; /* Texto escuro para contraste ideal */
+   }
+   
+   /* Efeito de Hover idêntico ao da Home */
+   .btn-gold:hover,
+   .btn-secondary:hover {
+       background: linear-gradient(
+           110deg,
+           #ffffff 0%,
+           var(--gold-light) 35%,
+           var(--gold) 70%,
+           var(--gold-dark) 100%
+       );
+       box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+       transform: translateY(-1px);
+       color: #111;
+   }
+   
+   /* Estilo do Degradê Dourado Idêntico ao da Tela Inicial */
+   .btn-gold,
+   .btn-secondary {
+       background: linear-gradient(
+           110deg,
+           var(--gold-light) 0%,
+           var(--gold) 35%,
+           var(--gold-dark) 70%,
+           #3c3527 100%
+       );
+       color: #111;
+   }
+   
+   /* Efeito de Hover igual ao da Home */
+   .btn-gold:hover,
+   .btn-secondary:hover {
+       background: linear-gradient(
+           110deg,
+           #ffffff 0%,
+           var(--gold-light) 35%,
+           var(--gold) 70%,
+           var(--gold-dark) 100%
+       );
+       box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+       transform: translateY(-1px);
+       color: #111;
+   }
 
 .btn-gold {
     border: 1px solid var(--gold);
