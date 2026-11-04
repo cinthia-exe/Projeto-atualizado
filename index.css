@@ -6,7 +6,7 @@
 :root {
     --gold: #eecf6b;
     --gold-light: #ffe991;
-    --gold-dark: #f7ce66;
+    --gold-dark: #fcda83;
 
     --bg-body: #1A1A1A;
     --bg-header: #131212;
@@ -30,10 +30,10 @@
 }
 
 /* ============================================================
-   LIGHT MODE
+   LIGHT MODE (Fundo Branco / Claro)
    ============================================================ */
 
-body:has(#theme-toggle:checked) {
+   body:has(#theme-toggle:checked) {
     --bg-body: #f3f3f3;
     --bg-header: #ffffff;
     --bg-navbar: #ffffff;
@@ -44,6 +44,11 @@ body:has(#theme-toggle:checked) {
     --text-main: #181818;
     --text-secondary: #555555;
     --text-muted: #777777;
+
+    /* Ajuste os tons de dourado para versões mais escuras/contrastantes no fundo branco */
+    --gold: #b8972e;        /* Dourado mais fechado e visível no branco */
+    --gold-light: #d4af37;
+    --gold-dark: #826315;
 
     --border: rgba(156, 124, 31, 0.35);
     --border-strong: rgba(156, 124, 31, 0.65);
@@ -555,39 +560,39 @@ header {
     outline-offset: 2px;
 }
 
+/* Atualize a regra do botão gold no index.css */
 .navbar-actions .btn-gold,
 .hero-actions .btn-gold {
     font-size: 12px;
     display: inline-block;
     padding: 8px 24px;
     border-radius: 30px;
-    border: 0px solid #b8a477;
+    border: 0px solid var(--border-strong);
 
     background: linear-gradient(
         110deg,
-        #f5db95 0%,
-        #b8a477 35%,
-        #665a3e 70%,
+        var(--gold-light) 0%,
+        var(--gold) 35%,
+        var(--gold-dark) 70%,
         #3c3527 100%
     );
 
-    color: white;
+    color: #111; /* Cor do texto escura para contraste ideal no botão dourado */
     text-decoration: none;
-
     transition: 0.3s ease;
 }
 
+/* Ajuste no Hover do Botão */
 .navbar-actions .btn-gold:hover,
 .hero-actions .btn-gold:hover {
     background: linear-gradient(
         110deg,
-        #fff1c7 0%,
-        #e7d5a5 35%,
-        #a99a73 70%,
-        #62563e 100%
+        #ffffff 0%,
+        var(--gold-light) 35%,
+        var(--gold) 70%,
+        var(--gold-dark) 100%
     );
-
-    box-shadow: 0 0 14px #d4af3755;
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
 }
 
 /* ============================================================
@@ -1009,13 +1014,16 @@ header {
    LIGHT MODE - SOMBRAS
    ============================================================ */
 
-body:has(#theme-toggle:checked) .app-navbar {
+   body:has(#theme-toggle:checked) .app-navbar {
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 }
 
+/* REMOVA OU COMENTE A LINHA ABAIXO PARA TIRAR A SOMBRA/LINHA DO HERO */
+/* 
 body:has(#theme-toggle:checked) .hero-banner {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-}
+} 
+*/
 
 body:has(#theme-toggle:checked) .gold-card {
     box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
@@ -1386,4 +1394,13 @@ body:has(#theme-toggle:checked) .gold-card:hover {
     .page-content-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ============================================================
+   AJUSTE DA LOGO NO HEADER PARA O DARK MODE (FUNDO BRANCO)
+   ============================================================ */
+   body:has(#theme-toggle:checked) .brand-image {
+    /* Aplica um filtro para converter a logo para o degradê em tons de dourado e cinza escuro */
+    filter: brightness(0.7) contrast(1.3) sepia(60%) hue-rotate(5deg);
+    transition: filter 0.3s ease;
 }
