@@ -166,11 +166,13 @@ a {
     gap: 20px 18px;
 }
 
+
 .form-group {
     display: flex;
     flex-direction: column;
     min-width: 0;
 }
+
 
 .form-full {
     grid-column: 1 / -1;
@@ -189,6 +191,19 @@ a {
     color: var(--gold);
 }
 
+/* ============================================================
+   ESTILIZAÇÃO DO ÍCONE DE DATA (CALENDÁRIO)
+   ============================================================ */
+   .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: brightness(0) saturate(100%) invert(77%) sepia(59%) saturate(455%) hue-rotate(3deg) brightness(91%) contrast(88%);
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.form-group input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
 
 /* ============================================================
    INPUTS
