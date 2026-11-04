@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RUAN INSULFILM - Recupere sua Senha</title>
+
+    <!-- Font Awesome - somente CSS -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Google Fonts - somente CSS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="recuperarsenha.css">
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <section class="login-card">
+
+            <div class="login-header">
+
+            
+                <h1>Recuperação de Senha</h1>
+            
+                <p>
+                    Insira o seu e-mail de cadastro para continuar
+                </p>
+            
+            </div>
+
+
+            <form class="login-form" action="#" method="post">
+
+                <div class="form-group">
+                    <label for="login">
+                        Informe seu E-mail <span>*</span>
+                    </label>
+
+                    <div class="input-box">
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="recuperarsenha"
+                            name="recuperarsenha"
+                            minlength="6"
+                            maxlength="6"
+                            pattern="[A-Za-z]{6}"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+                </div>
+
+
+               
+
+                <button type="submit" class="btn-gold">
+                    Enviar
+                </button>
+
+
+               
+
+            </form>
+
+
+            <div class="back-home">
+                <a href="index.html">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Voltar para a página inicial
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
