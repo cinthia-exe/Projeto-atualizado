@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.target.value = v;
     });
 
-    // CEP: 00000-000 e Autopreenchimento do Endereço
+    // CEP: 00000-000 e Autopreenchimento do Endereço via ViaCEP
     inputCep.addEventListener("input", (e) => {
         let v = e.target.value.replace(/\D/g, "");
         if (v.length > 8) v = v.slice(0, 8);
@@ -50,9 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (!data.erro) {
                         inputEndereco.value = `${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`;
                         inputNumero.focus(); // Direciona o foco para digitar o número
+                    } else {
+                        alert("CEP não encontrado. Verifique o número digitado.");
+                        inputEndereco.value = "";
+                        inputCep.focus();
                     }
                 })
-                .catch(() => console.log("Erro ao buscar CEP"));
+                .catch(() => {
+                    console.log("Erro ao buscar CEP");
+                    alert("Erro ao conectar com o serviço de CEP.");
+                });
         }
     });
 
