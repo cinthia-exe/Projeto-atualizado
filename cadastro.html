@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RUAN INSULFILM - Cadastro</title>
+    <title>RUAN FILM - Cadastro</title>
 
     <!-- Font Awesome - somente CSS -->
     <link
@@ -28,14 +28,6 @@
         <section class="cadastro-card">
 
             <div class="cadastro-header">
-
-                <a href="index.html" class="logo-link" aria-label="Voltar para a página inicial">
-                    <i class="fa-solid fa-shield-halved"></i>
-
-                    <span class="brand-name">
-                        RUAN INSULFILM
-                    </span>
-                </a>
 
                 <h1>Cadastro de Usuário no Sistema</h1>
 
@@ -72,7 +64,7 @@
                     </label>
 
                     <input
-                        type="text"
+                        type="date"
                         id="data-nascimento"
                         name="data_nascimento"
                         placeholder="dd/mm/aaaa"
@@ -106,6 +98,7 @@
 
                         <option value="feminino">
                             Feminino
+                        </option>
                     </select>
                 </div>
 
@@ -167,6 +160,26 @@
                 </div>
 
 
+                <!-- CEP (Posicionado antes do Telefone Fixo) -->
+                <div class="form-group">
+                    <label for="cep">
+                        CEP <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cep"
+                        name="cep"
+                        placeholder="00000-000"
+                        inputmode="numeric"
+                        maxlength="9"
+                        autocomplete="postal-code"
+                        required
+                    >
+                    <small>Digite o CEP para buscar o endereço.</small>
+                </div>
+
+
                 <!-- Telefone fixo -->
                 <div class="form-group">
                     <label for="telefone">
@@ -187,19 +200,50 @@
                 </div>
 
 
-                <!-- Endereço -->
+                <!-- Endereço (Preenchido pela API) -->
                 <div class="form-group form-full">
                     <label for="endereco">
-                        Endereço Completo <span>*</span>
+                        Endereço / Rua <span>*</span>
                     </label>
 
                     <input
                         type="text"
                         id="endereco"
                         name="endereco"
-                        placeholder="Rua, Número, Bairro, Cidade - Estado"
+                        placeholder="Rua, Avenida, etc."
                         autocomplete="street-address"
                         required
+                    >
+                </div>
+
+
+                <!-- Número da Casa -->
+                <div class="form-group">
+                    <label for="numero">
+                        Número <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="numero"
+                        name="numero"
+                        placeholder="Ex: 123"
+                        required
+                    >
+                </div>
+
+
+                <!-- Complemento -->
+                <div class="form-group">
+                    <label for="complemento">
+                        Complemento
+                    </label>
+
+                    <input
+                        type="text"
+                        id="complemento"
+                        name="complemento"
+                        placeholder="Ex: Apto 101, Bloco B"
                     >
                 </div>
 
@@ -272,7 +316,7 @@
                 </div>
 
 
-                <!-- Termo -->
+                <!-- Rodapé / Botões -->
                 <div class="form-footer">
 
                     <a href="index.html" class="btn-secondary">
@@ -292,6 +336,33 @@
         </section>
 
     </main>
+
+    <!-- Script da API ViaCEP adaptado para os novos campos -->
+    <script>
+        const cepInput = document.getElementById('cep');
+        const enderecoInput = document.getElementById('endereco');
+
+        cepInput.addEventListener('blur', function() {
+            let cep = cepInput.value.replace(/\D/g, '');
+
+            if (cep.length === 8) {
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.erro) {
+                            // Preenche apenas a rua, bairro e cidade no campo de endereço
+                            enderecoInput.value = `${data.logradouro} - ${data.bairro}, ${data.localidade}/${data.uf}`;
+                        } else {
+                            alert('CEP não encontrado.');
+                            enderecoInput.value = '';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro ao buscar o CEP:', error);
+                    });
+            }
+        });
+    </script>
 
 </body>
 </html>
