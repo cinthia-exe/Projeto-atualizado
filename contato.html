@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="contato.css">
 </head>
 <body>
     <input type="checkbox" id="theme-toggle" class="css-control">
@@ -51,9 +52,9 @@
 
                 <div class="navbar-menu">
                     <ul class="navbar-nav">
-                        <li><a href="index.html" class="nav-link-custom "><i class="fa-solid fa-house"></i>Home</a></li>
+                        <li><a href="index.html" class="nav-link-custom"><i class="fa-solid fa-house"></i>Home</a></li>
                         <li class="nav-item dropdown">
-                            <a href="insulfilm.html" class="nav-link-custom " aria-haspopup="true">
+                            <a href="insulfilm.html" class="nav-link-custom" aria-haspopup="true">
                                 <i class="fa-solid fa-plug"></i>
                                 Insulfilm
                                 <i class="fa-solid fa-chevron-down dropdown-chevron"></i>
@@ -66,7 +67,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="outros-servicos.html" class="nav-link-custom " aria-haspopup="true">
+                            <a href="outros-servicos.html" class="nav-link-custom" aria-haspopup="true">
                                 <i class="fa-solid fa-shield-cat"></i>
                                 Outros Serviços
                                 <i class="fa-solid fa-chevron-down dropdown-chevron"></i>
@@ -76,7 +77,7 @@
                                 <li><a href="outros-servicos.html#envelopamento">Envelopamento Veicular</a></li>
                             </ul>
                         </li>
-                        <li><a href="galeria.html" class="nav-link-custom "><i class="fa-solid fa-sun"></i>Galeria</a></li>
+                        <li><a href="galeria.html" class="nav-link-custom"><i class="fa-solid fa-sun"></i>Galeria</a></li>
                         <li><a href="contato.html" class="nav-link-custom active"><i class="fa-solid fa-envelope"></i>Contato</a></li>
                     </ul>
                     <div class="navbar-actions">
@@ -89,20 +90,86 @@
 
     <main class="inner-main">
         <section class="inner-hero">
-            <h1>Contato</h1>
-            <p>Página preparada para você adicionar posteriormente telefone, WhatsApp, endereço, redes sociais e formulário de contato.</p>
+            <h1>Fale com a gente</h1>
+            <p>Estamos sempre prontos para lidar com suas dúvidas e fornecer conhecimento completo sobre as películas.</p>
         </section>
 
-        <div class="page-content-grid">
-            <section class="page-section page-placeholder" id="dados-contato">
-                <h2>Informações de Contato</h2>
-                <p>Espaço reservado para telefone, WhatsApp, Instagram e demais canais.</p>
+        <div class="contact-layout-grid">
+            <!-- Formulário de Envie sua Mensagem -->
+            <section class="contact-form-box">
+                <h2>Envie sua mensagem</h2>
+                <p>Responderemos o mais rápido possível.</p>
+                <form action="#" method="post">
+                    <div class="form-group-contact">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                    </div>
+                    <div class="form-group-contact">
+                        <label for="telefone_contato">Telefone / WhatsApp</label>
+                        <input type="text" id="telefone_contato" name="telefone_contato" placeholder="(21) 99999-9999" required>
+                    </div>
+                    <div class="form-group-contact">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" placeholder="Escreva sua dúvida ou solicitação de orçamento..." required></textarea>
+                    </div>
+                    <button type="submit" class="contact-submit-btn">Enviar Mensagem</button>
+                </form>
             </section>
-            <section class="page-section page-placeholder" id="localizacao">
-                <h2>Localização e Atendimento</h2>
-                <p>Espaço reservado para endereço, mapa e informações de atendimento.</p>
-            </section>
+
+            <!-- Grid de Contato e Localização com os Cards -->
+            <!-- Grid de Contato e Localização com os Cards -->
+<div class="contact-info-section">
+    <div class="contact-header-block">
+        <h3 class="contact-section-title">Contato e localização</h3>
+    </div>
+    
+    <div class="contact-cards-grid">
+        <!-- Card WhatsApp -->
+        <div class="contact-card-box">
+            <div class="contact-card-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="contact-card-content">
+                <h4>WhatsApp</h4>
+                <p>(21) 96422-2431</p>
+            </div>
         </div>
+
+        <!-- Card Telefone -->
+        <div class="contact-card-box">
+            <div class="contact-card-icon"><i class="fa-solid fa-phone"></i></div>
+            <div class="contact-card-content">
+                <h4>Telefone</h4>
+                <p>(21) 3044-6362</p>
+            </div>
+        </div>
+
+        <!-- Card Endereço -->
+        <div class="contact-card-box contact-card-full">
+            <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact-card-content">
+                <h4>Endereço</h4>
+                <p>R. João Bruno Lobo, 35 – Jacarepaguá, Rio de Janeiro/RJ • CEP 22780-805</p>
+            </div>
+        </div>
+
+        <!-- Card Dias e Horários -->
+        <div class="contact-card-box contact-card-full">
+            <div class="contact-card-icon"><i class="fa-regular fa-clock"></i></div>
+            <div class="contact-card-content">
+                <h4>Dias e Horários</h4>
+                <p>Todos os dias, das 7h às 23h</p>
+            </div>
+        </div>
+
+        <!-- Card Instagram (Mesmo tamanho de WhatsApp e Telefone) -->
+        <div class="contact-card-box">
+            <div class="contact-card-icon"><i class="fa-brands fa-instagram"></i></div>
+            <div class="contact-card-content">
+                <h4>Instagram</h4>
+                <p>@ruan.film</p>
+            </div>
+        </div>
+    </div>
+</div>
     </main>
 
     <footer class="footer">
