@@ -169,7 +169,11 @@
     letter-spacing: -0.01em;
 }
 
-.contact-cards-grid {
+/* ============================================================
+   AJUSTE DA GRELHA E DOS CARDS DE CONTATO
+   ============================================================ */
+
+   .contact-cards-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
@@ -181,7 +185,7 @@
     border-radius: 12px;
     padding: 1.2rem;
     display: flex;
-    align-items: flex-start;
+    align-items: flex-start; /* Garante que o ícone e o texto alinham pelo topo */
     gap: 1rem;
     box-shadow: 0 4px 16px var(--shadow);
     transition: border-color 0.2s ease, transform 0.2s ease;
@@ -231,26 +235,4 @@
     color: var(--text-secondary);
     line-height: 1.45;
     word-break: break-word;
-}
-
-/* ============================================================
-   RESPONSIVIDADE
-   ============================================================ */
-
-@media (max-width: 992px) {
-    .contact-layout-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    .contact-cards-grid {
-        grid-template-columns: 1fr;
-    }
-    .contact-card-full {
-        grid-column: span 1;
-    }
-    .contact-form-box {
-        padding: 1.5rem;
-    }
 }
