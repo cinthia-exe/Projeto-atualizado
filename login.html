@@ -3,25 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>RUAN INSULFILM - Login</title>
 
-    <!-- Font Awesome - somente CSS -->
-    <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        rel="stylesheet"
-    >
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Google Fonts - somente CSS -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
+    <!-- Estilos base do site e da barra superior -->
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
+    <body>
+
+    <!-- =========================================================
+         CONTROLES CSS (Necessários para o funcionamento do Dark Mode)
+         ========================================================= -->
+    <input type="checkbox" id="theme-toggle" class="css-control">
+    <input type="radio" name="font-size" id="font-size-1" class="css-control">
+    <input type="radio" name="font-size" id="font-size-2" class="css-control">
+    <input type="radio" name="font-size" id="font-size-3" class="css-control">
+    <input type="radio" name="font-size" id="font-size-4" class="css-control" checked>
+    <input type="radio" name="font-size" id="font-size-5" class="css-control">
+    <input type="radio" name="font-size" id="font-size-6" class="css-control">
+    <input type="radio" name="font-size" id="font-size-7" class="css-control">
+    <input type="checkbox" id="menu-toggle" class="css-control">
+    <!-- =========================================================
+         HEADER COM BARRA DE ACESSIBILIDADE
+         ========================================================= -->
+    <header>
+        <div class="accessibility-bar">
+            <div class="accessibility-info">
+                <span>
+                    <i class="fa-solid fa-phone gold-text"></i>
+                    (21) 9 7066-2286
+                </span>
+                <span class="desktop-only">
+                    <i class="fa-brands fa-instagram gold-text"></i>
+                    @ruan.film23
+                </span>
+                <span class="desktop-large-only">
+                    <i class="fa-solid fa-location-dot gold-text"></i>
+                    Atendimento no Rio de Janeiro
+                </span>
+            </div>
+
+            <div class="accessibility-controls">
+                <!-- Botão Dark Mode -->
+                <label for="theme-toggle" class="access-btn theme-button" aria-label="Alternar tema claro/escuro">
+                    <i class="fa-solid fa-sun theme-icon-light"></i>
+                    <i class="fa-solid fa-moon theme-icon-dark"></i>
+                </label>
+
+                <!-- Tamanho da fonte -->
+                <div class="font-controls">
+                    <div class="font-step font-step-decrease">
+                        <label for="font-size-3" class="access-btn">A-</label>
+                        <label for="font-size-2" class="access-btn">A-</label>
+                        <label for="font-size-1" class="access-btn">A-</label>
+                        <label for="font-size-1" class="access-btn disabled-control">A-</label>
+                    </div>
+
+                    <label for="font-size-4" class="access-btn font-reset">A</label>
+
+                    <div class="font-step font-step-increase">
+                        <label for="font-size-5" class="access-btn">A+</label>
+                        <label for="font-size-6" class="access-btn">A+</label>
+                        <label for="font-size-7" class="access-btn">A+</label>
+                        <label for="font-size-7" class="access-btn disabled-control">A+</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <main class="login-page">
 
@@ -103,7 +157,7 @@
 
                 <div class="login-links">
 
-                    <a href="#" class="forgot-link">
+                    <a href="recuperarsenha.html" class="forgot-link">
                         Esqueci minha senha
                     </a>
 
@@ -132,6 +186,6 @@
         </section>
 
     </main>
-
+<script src="darkmode.js"></script>
 </body>
 </html>
