@@ -3,10 +3,10 @@
    SOMENTE HTML + CSS
    ============================================================ */
 
-:root {
+   :root {
     --gold: #eecf6b;
     --gold-light: #ffe991;
-    --gold-dark: #9b781c;
+    --gold-dark: #fcda83;
 
     --bg: #070707;
     --card: #111111;
@@ -23,6 +23,26 @@
 
     --font-main: "Montserrat", sans-serif;
     --font-title: "Cinzel", serif;
+}
+
+/* ============================================================
+   LIGHT MODE (Fundo Branco / Claro)
+   ============================================================ */
+body:has(#theme-toggle:checked) {
+    --bg: #f3f3f3;
+    --card: #ffffff;
+    --card-2: #fafafa;
+    --text: #181818;
+    --text-secondary: #555555;
+    --text-muted: #777777;
+
+    --gold: #b8972e;
+    --gold-light: #d4af37;
+    --gold-dark: #826315;
+
+    --border: rgba(156, 124, 31, 0.35);
+    --border-strong: rgba(156, 124, 31, 0.65);
+    --shadow: rgba(0, 0, 0, 0.12);
 }
 
 * {
@@ -48,6 +68,7 @@ body {
 
     color: var(--text);
     font-family: var(--font-main);
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 header {
@@ -92,6 +113,7 @@ a {
 
     box-shadow:
         0 18px 45px var(--shadow);
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 
@@ -204,7 +226,15 @@ a {
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease,
-        background-color 0.2s ease;
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+body:has(#theme-toggle:checked) .form-group input,
+body:has(#theme-toggle:checked) .form-group select {
+    background: #ffffff;
+    color: #181818;
+    border-color: rgba(156, 124, 31, 0.3);
 }
 
 .form-group input::placeholder {
@@ -220,6 +250,11 @@ a {
     color: #f5f5f5;
 }
 
+body:has(#theme-toggle:checked) .form-group select option {
+    background: #ffffff;
+    color: #181818;
+}
+
 .form-group input:hover,
 .form-group select:hover {
     border-color: rgba(212, 175, 55, 0.45);
@@ -232,9 +267,14 @@ a {
     background: #0d0d0d;
 }
 
+body:has(#theme-toggle:checked) .form-group input:focus,
+body:has(#theme-toggle:checked) .form-group select:focus {
+    background: #f7f7f7;
+}
+
 
 /* ============================================================
-   LETRAS MENORES (IGUAL À SEGUNDA IMAGEM)
+   AJUDA
    ============================================================ */
 
 .form-group small {
@@ -261,7 +301,7 @@ a {
 
 
 /* ============================================================
-   RODAPÉ DO FORMULÁRIO E BOTÕES (IGUAL À SEGUNDA IMAGEM)
+   RODAPÉ DO FORMULÁRIO E BOTÕES
    ============================================================ */
 
 .form-footer {
@@ -276,6 +316,10 @@ a {
     gap: 14px;
 
     border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body:has(#theme-toggle:checked) .form-footer {
+    border-top-color: rgba(0, 0, 0, 0.09);
 }
 
 .btn-gold,
