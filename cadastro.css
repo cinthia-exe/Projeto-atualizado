@@ -4,8 +4,8 @@
    ============================================================ */
 
 :root {
-    --gold: #d4af37;
-    --gold-light: #f1d675;
+    --gold: #eecf6b;
+    --gold-light: #ffe991;
     --gold-dark: #9b781c;
 
     --bg: #070707;
@@ -14,6 +14,7 @@
 
     --text: #f5f5f5;
     --text-secondary: #a9a9a9;
+    --text-muted: #777777;
 
     --border: rgba(212, 175, 55, 0.30);
     --border-strong: rgba(212, 175, 55, 0.70);
@@ -107,36 +108,6 @@ a {
     border-bottom: 1px solid var(--border);
 }
 
-.logo-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    margin-bottom: 18px;
-
-    color: var(--gold);
-
-    transition:
-        color 0.2s ease,
-        transform 0.2s ease;
-}
-
-.logo-link:hover {
-    color: var(--gold-light);
-    transform: translateY(-1px);
-}
-
-.logo-link i {
-    font-size: 1.55rem;
-}
-
-.brand-name {
-    font-family: var(--font-title);
-    font-size: 1.15rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
 .cadastro-header h1 {
     margin: 0 0 8px;
 
@@ -164,20 +135,15 @@ a {
 
 .cadastro-form {
     display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px 18px;
 }
-
 
 .form-group {
     display: flex;
     flex-direction: column;
     min-width: 0;
 }
-
 
 .form-full {
     grid-column: 1 / -1;
@@ -196,9 +162,11 @@ a {
     color: var(--gold);
 }
 
+
 /* ============================================================
-   ESTILIZAÇÃO DO ÍCONE DE DATA (CALENDÁRIO)
+   ÍCONE DE DATA (CALENDÁRIO)
    ============================================================ */
+
 .form-group input[type="date"]::-webkit-calendar-picker-indicator {
     filter: brightness(0) saturate(100%) invert(77%) sepia(59%) saturate(455%) hue-rotate(3deg) brightness(91%) contrast(88%);
     cursor: pointer;
@@ -209,6 +177,7 @@ a {
 .form-group input[type="date"]::-webkit-calendar-picker-indicator:hover {
     opacity: 1;
 }
+
 
 /* ============================================================
    INPUTS
@@ -259,8 +228,155 @@ a {
 .form-group input:focus,
 .form-group select:focus {
     border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+    background: #0d0d0d;
+}
 
-    box-shadow:
-        0 0 0 3px rgba(212, 175, 55, 0.12);
 
-    background
+/* ============================================================
+   LETRAS MENORES (IGUAL À SEGUNDA IMAGEM)
+   ============================================================ */
+
+.form-group small {
+    margin-top: 6px;
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+
+/* ============================================================
+   VALIDAÇÃO NATIVA
+   ============================================================ */
+
+.form-group input:required:valid,
+.form-group select:required:valid {
+    border-color: rgba(212, 175, 55, 0.40);
+}
+
+.form-group input:required:invalid:not(:placeholder-shown) {
+    border-color: rgba(180, 60, 60, 0.70);
+}
+
+
+/* ============================================================
+   RODAPÉ DO FORMULÁRIO E BOTÕES (IGUAL À SEGUNDA IMAGEM)
+   ============================================================ */
+
+.form-footer {
+    grid-column: 1 / -1;
+
+    margin-top: 8px;
+    padding-top: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-gold,
+.btn-secondary {
+    min-height: 46px;
+    padding: 12px 28px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+
+    background: var(--gold);
+    color: #000000;
+
+    font-family: var(--font-main);
+    font-size: 0.82rem;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn-gold:hover,
+.btn-secondary:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    color: #000000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(238, 207, 107, 0.25);
+}
+
+
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
+
+@media (max-width: 720px) {
+    .cadastro-page {
+        padding: 16px 10px;
+    }
+
+    .cadastro-card {
+        padding: 26px 18px;
+        border-radius: 12px;
+    }
+
+    .cadastro-header {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+    }
+
+    .cadastro-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .cadastro-header p {
+        font-size: 0.76rem;
+    }
+
+    .cadastro-form {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .form-full {
+        grid-column: auto;
+    }
+
+    .form-footer {
+        grid-column: auto;
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .btn-gold,
+    .btn-secondary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .cadastro-card {
+        padding: 22px 14px;
+    }
+
+    .cadastro-header h1 {
+        font-size: 1.05rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        min-height: 44px;
+        font-size: 0.76rem;
+    }
+}
