@@ -35,11 +35,11 @@ html {
 body {
     min-height: 100vh;
     margin: 0;
-    padding: 30px 18px;
+    padding: 0;
 
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
 
     background:
         radial-gradient(circle at top, rgba(212, 175, 55, 0.08), transparent 35%),
@@ -47,6 +47,10 @@ body {
 
     color: var(--text);
     font-family: var(--font-main);
+}
+
+header {
+    width: 100%;
 }
 
 a {
@@ -63,6 +67,7 @@ a {
     width: 100%;
     max-width: 980px;
     margin: 0 auto;
+    padding: 30px 18px;
 }
 
 
@@ -194,7 +199,7 @@ a {
 /* ============================================================
    ESTILIZAÇÃO DO ÍCONE DE DATA (CALENDÁRIO)
    ============================================================ */
-   .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
     filter: brightness(0) saturate(100%) invert(77%) sepia(59%) saturate(455%) hue-rotate(3deg) brightness(91%) contrast(88%);
     cursor: pointer;
     opacity: 0.8;
@@ -258,246 +263,4 @@ a {
     box-shadow:
         0 0 0 3px rgba(212, 175, 55, 0.12);
 
-    background: #0d0d0d;
-}
-
-
-/* ============================================================
-   AJUDA
-   ============================================================ */
-
-.form-group small {
-    margin-top: 5px;
-
-    color: #777;
-
-    font-size: 0.65rem;
-}
-
-
-/* ============================================================
-   ESTADOS DE VALIDAÇÃO NATIVA
-   ============================================================ */
-
-.form-group input:required:valid,
-.form-group select:required:valid {
-    border-color: rgba(212, 175, 55, 0.40);
-}
-
-.form-group input:required:invalid:not(:placeholder-shown) {
-    border-color: rgba(180, 60, 60, 0.70);
-}
-
-
-/* ============================================================
-   RODAPÉ DO FORMULÁRIO
-   ============================================================ */
-
-.form-footer {
-    grid-column: 1 / -1;
-
-    margin-top: 8px;
-    padding-top: 24px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 12px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-
-/* ============================================================
-   BOTÕES (Atualizados com o degradê e formato da tela inicial)
-   ============================================================ */
-
-   .btn-gold,
-   .btn-secondary {
-       min-height: 44px;
-       padding: 10px 24px;
-   
-       display: inline-flex;
-       align-items: center;
-       justify-content: center;
-   
-       gap: 8px;
-   
-       /* Deixa o botão arredondado em formato de pílula */
-       border-radius: 30px;
-       border: none;
-   
-       font-family: var(--font-main);
-       font-size: 12px;
-       font-weight: 700;
-   
-       cursor: pointer;
-   
-       transition:
-           background-color 0.2s ease,
-           transform 0.2s ease,
-           box-shadow 0.2s ease;
-   }
-   
-   /* Aplicando o mesmo degradê dourado da tela inicial em ambos */
-   .btn-gold,
-   .btn-secondary {
-       background: linear-gradient(
-           110deg,
-           var(--gold-light) 0%,
-           var(--gold) 35%,
-           var(--gold-dark) 70%,
-           #3c3527 100%
-       );
-       color: #111; /* Texto escuro para contraste ideal */
-   }
-   
-   /* Efeito de Hover idêntico ao da Home */
-   .btn-gold:hover,
-   .btn-secondary:hover {
-       background: linear-gradient(
-           110deg,
-           #ffffff 0%,
-           var(--gold-light) 35%,
-           var(--gold) 70%,
-           var(--gold-dark) 100%
-       );
-       box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
-       transform: translateY(-1px);
-       color: #111;
-   }
-   
-   /* Estilo do Degradê Dourado Idêntico ao da Tela Inicial */
-   .btn-gold,
-   .btn-secondary {
-       background: linear-gradient(
-           110deg,
-           var(--gold-light) 0%,
-           var(--gold) 35%,
-           var(--gold-dark) 70%,
-           #3c3527 100%
-       );
-       color: #111;
-   }
-   
-   /* Efeito de Hover igual ao da Home */
-   .btn-gold:hover,
-   .btn-secondary:hover {
-       background: linear-gradient(
-           110deg,
-           #ffffff 0%,
-           var(--gold-light) 35%,
-           var(--gold) 70%,
-           var(--gold-dark) 100%
-       );
-       box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
-       transform: translateY(-1px);
-       color: #111;
-   }
-
-.btn-gold {
-    border: 1px solid var(--gold);
-
-    background: var(--gold);
-
-    color: #000;
-}
-
-.btn-gold:hover {
-    background: var(--gold-light);
-    border-color: var(--gold-light);
-
-    color: #000;
-
-    transform: translateY(-1px);
-}
-
-.btn-secondary {
-    border: 1px solid rgba(212, 175, 55, 0.35);
-
-    background: transparent;
-
-    color: var(--gold);
-}
-
-.btn-secondary:hover {
-    border-color: var(--gold);
-    background: rgba(212, 175, 55, 0.10);
-
-    color: var(--gold-light);
-
-    transform: translateY(-1px);
-}
-
-
-/* ============================================================
-   RESPONSIVIDADE
-   ============================================================ */
-
-@media (max-width: 720px) {
-
-    body {
-        padding: 16px 10px;
-    }
-
-    .cadastro-card {
-        padding: 26px 18px;
-        border-radius: 12px;
-    }
-
-    .cadastro-header {
-        margin-bottom: 25px;
-        padding-bottom: 20px;
-    }
-
-    .cadastro-header h1 {
-        font-size: 1.2rem;
-    }
-
-    .cadastro-header p {
-        font-size: 0.76rem;
-    }
-
-    .cadastro-form {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .form-full {
-        grid-column: auto;
-    }
-
-    .form-footer {
-        grid-column: auto;
-
-        flex-direction: column-reverse;
-        align-items: stretch;
-    }
-
-    .btn-gold,
-    .btn-secondary {
-        width: 100%;
-    }
-}
-
-@media (max-width: 420px) {
-
-    .cadastro-card {
-        padding: 22px 14px;
-    }
-
-    .brand-name {
-        font-size: 1rem;
-    }
-
-    .cadastro-header h1 {
-        font-size: 1.05rem;
-    }
-
-    .form-group input,
-    .form-group select {
-        min-height: 44px;
-        font-size: 0.76rem;
-    }
-}
+    background
