@@ -1,36 +1,33 @@
-// 1. Executa imediatamente assim que o script é lido pelo navegador
-if (localStorage.getItem('ruan_theme') === 'dark') {
-    const toggle = document.getElementById('theme-toggle');
-    if (toggle) {
-        toggle.checked = true;
-    }
-}
+// darkmode.js - Versão Definitiva
 
-// 2. Configura os eventos de clique e garante o estado ao carregar o DOM
+// 1. Aplica o tema imediatamente assim que o elemento é lido no HTML
+(function () {
+    const savedTheme = localStorage.getItem('ruan_film_theme');
+    if (savedTheme === 'light') {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) themeToggle.checked = true;
+    }
+})();
+
+// 2. Sincroniza e salva o estado ao interagir com o site
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
-    const themeButtons = document.querySelectorAll('.theme-button');
+    if (!themeToggle) return;
 
-    // Reforça o estado caso o elemento tenha demorado um microssegundo a mais para aparecer
-    if (localStorage.getItem('ruan_theme') === 'dark' && themeToggle) {
+    // Garante que o estado reflete o localStorage ao carregar a página
+    const savedTheme = localStorage.getItem('ruan_film_theme');
+    if (savedTheme === 'light') {
         themeToggle.checked = true;
+    } else {
+        themeToggle.checked = false;
     }
 
-    themeButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault(); 
-
-            if (themeToggle) {
-                themeToggle.checked = !themeToggle.checked;
-
-                if (themeToggle.checked) {
-                    localStorage.setItem('ruan_theme', 'dark');
-                } else {
-                    localStorage.setItem('ruan_theme', 'light');
-                }
-
-                themeToggle.dispatchEvent(new Event('change'));
-            }
-        });
+    // Salva a preferência sempre que o botão for acionado
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            localStorage.setItem('ruan_film_theme', 'light');
+        } else {
+            localStorage.setItem('ruan_film_theme', 'dark');
+        }
     });
 });
